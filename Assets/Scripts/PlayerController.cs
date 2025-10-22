@@ -6,6 +6,11 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 45.0f; //gradi al sec
     private float horizontalInput;
     private float verticalInput;
+    public Camera MainCamera;
+    public Camera NearCamera;
+    public KeyCode switchKey;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +25,11 @@ public class PlayerController : MonoBehaviour
         //Read the imputs
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
+        if(Input.GetKeyDown(switchKey))
+        {
+            MainCamera.enabled = !MainCamera.enabled;
+            NearCamera.enabled = !NearCamera.enabled;
+        }
 
 
         // Move the vehicle forward
